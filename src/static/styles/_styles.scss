@@ -1,0 +1,29 @@
+@import '../styles/pages/main/main';
+@import '../styles/components/navbar/navbar';
+@import './utilities/colors';
+@import './components/logo/logo';
+@import './components/sidebar/sidebar';
+@import './components/sidelinks/sidelinks';
+@import './pages/students/students';
+@import '../styles/modal/modal';
+@import '../styles/components/studentcard/studentcard';
+@import '../styles/components/addstudent/addstudent';
+@import '../styles/components/deletemodal/deletemodal';
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+}
+hr {
+  border: 0.5px solid #e4e8ee;
+  clear: both;
+  display: block;
+  width: 100%;
+  background-color: #e4e8ee;
+}

@@ -1,0 +1,43 @@
+.s-data-cntnr {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  p {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  &:hover {
+    .edit {
+      visibility: visible;
+    }
+  }
+
+  * {
+    flex: 3;
+  }
+
+  .edit {
+    visibility: hidden;
+    display: flex;
+    gap: 1.125rem;
+    flex: 1;
+    padding: 0 1.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .edit-btn,
+    .remove-btn {
+      background-color: transparent;
+      width: fit-content;
+      height: fit-content;
+    }
+  }
+  .index {
+    flex: 1;
+  }
+}

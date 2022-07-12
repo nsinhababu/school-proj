@@ -1,0 +1,24 @@
+.container {
+  min-height: 100vh;
+  max-width: 100vw;
+  display: grid;
+  grid-template-columns: 20% 78%;
+  grid-template-rows: 20% 77%;
+  grid-template-areas:
+    's n'
+    's m';
+  grid-gap: 0 1.5rem;
+
+  .side-bar-cntnr {
+    grid-area: s;
+  }
+
+  .nav-cntnr {
+    grid-area: n;
+    display: flex;
+    align-items: center;
+  }
+  .main-cntnr {
+    grid-area: m;
+  }
+}

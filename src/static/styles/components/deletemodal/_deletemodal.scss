@@ -1,0 +1,77 @@
+.dlt {
+  width: 30rem;
+  height: 24.125rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1.5rem;
+  background-color: white;
+  font-family: 'Montserrat';
+  font-style: normal;
+  color: #242424;
+  padding: 1.5rem;
+  border-radius: 1.25rem;
+
+  .d-pg-nm {
+    font-weight: 600;
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+  }
+  .d-warn {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .d-nm-cntnr,
+  .d-cls-cntnr {
+    .first {
+      font-weight: 500;
+      font-size: 0.75rem;
+      line-height: 1rem;
+      letter-spacing: 0.02em;
+      color: #7f878a;
+      margin-bottom: 0.5rem;
+    }
+    .second {
+      font-weight: 400;
+      font-size: 0.875rem;
+      line-height: 1.125rem;
+      letter-spacing: 0.02em;
+      color: #242424;
+    }
+  }
+  .dlt-btn-cntnr {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    gap: 1.25rem;
+
+    .cncl-btn {
+      width: 6.125rem;
+      height: 2.375rem;
+      border: 1px solid #2ca4d8;
+      filter: drop-shadow(0px 2px 20px rgba(44, 164, 216, 0.2));
+      border-radius: 0.625rem;
+      font-weight: 600;
+      font-size: 0.875rem;
+      line-height: 1.625rem;
+      letter-spacing: 1.25px;
+      color: #2ca4d8;
+    }
+    .rmv-btn {
+      width: 6.375rem;
+      height: 2.375rem;
+      background: #f24643;
+      box-shadow: 0px 2px 20px rgba(242, 70, 67, 0.05);
+      border-radius: 0.625rem;
+      font-weight: 600;
+      font-size: 0.875rem;
+      line-height: 1.625rem;
+      letter-spacing: 1.25px;
+      color: #ffffff;
+    }
+  }
+}

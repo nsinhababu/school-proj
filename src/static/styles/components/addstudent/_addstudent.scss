@@ -1,0 +1,132 @@
+.a-s-cntnr {
+  width: 460px;
+  height: 600px;
+
+  border-radius: 1.875rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 1.5rem;
+  font-family: 'Montserrat';
+  background-color: white;
+  gap: 1.5rem;
+
+  .pageName {
+    font-weight: 600;
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+    color: #242424;
+    font-style: normal;
+  }
+
+  .inp-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+
+    .inp-cntnr {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+
+      label {
+        font-weight: 500;
+        font-size: 0.75rem;
+        line-height: 1rem;
+        letter-spacing: 0.02em;
+        color: #7f878a;
+      }
+
+      input {
+        width: 100%;
+        max-width: 26.25rem;
+        height: 2.125rem;
+        margin: 0.5rem 0 0.125rem 0;
+        border: 1px solid #d2d8e2;
+        border-radius: 0.625rem;
+        padding: 0 0.875rem;
+      }
+      p {
+        font-style: italic;
+        font-weight: 400;
+        font-size: 0.75rem;
+        line-height: 1rem;
+        color: #666a6c;
+      }
+    }
+
+    .error {
+      color: red;
+
+      input {
+        border-color: red;
+      }
+      p {
+        color: red;
+      }
+    }
+
+    .result,
+    .grade {
+      width: 100%;
+      max-width: 26.25rem;
+
+      p {
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 16px;
+        letter-spacing: 0.02em;
+        color: #7f878a;
+        margin-bottom: 0.5rem;
+      }
+      span {
+        font-weight: 600;
+        font-size: 0.75rem;
+        line-height: 1rem;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        letter-spacing: 0.25px;
+        padding: 1px 5px;
+        width: fit-content;
+        border-radius: 1rem;
+      }
+
+      .grade-value {
+        color: #2cbf6e;
+      }
+    }
+
+    .a-s-btn-cntnr {
+      display: flex;
+      justify-content: flex-end;
+      gap: 1.25rem;
+      width: 100%;
+
+      button {
+        padding: 0.375rem 1rem;
+        font-weight: 600;
+        font-size: 0.875rem;
+        line-height: 1.625rem;
+        text-align: center;
+        letter-spacing: 1.25px;
+        text-transform: uppercase;
+        border-radius: 0.625rem;
+      }
+      .cnfrm-btn {
+        background-color: #2ca4d8;
+        color: white;
+      }
+      .can-btn {
+        background-color: white;
+        color: #2ca4d8;
+        border: 1px solid #2ca4d8;
+        filter: drop-shadow(0px 2px 20px rgba(44, 164, 216, 0.2));
+      }
+    }
+  }
+}

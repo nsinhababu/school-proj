@@ -1,0 +1,19 @@
+.side-link {
+  width: 100%;
+  height: 2.5rem;
+  border-radius: 0.625rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1.375rem;
+  font-size: 0.875rem;
+  line-height: 1.125rem;
+  color: #242424;
+  text-decoration: none;
+  text-transform: capitalize;
+  padding-left: 1.5rem;
+}
+.active {
+  background-color: rgba(44, 164, 216, 0.1);
+  color: #2ca4d8;
+}
