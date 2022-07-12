@@ -19,7 +19,7 @@ const StudentCard = ({
     <>
       <div className='s-data-cntnr'>
         <p className='index'>{index}</p>
-        <p>{obj.name}</p>
+        <p className='name'>{obj.name}</p>
         <p>{obj.class}</p>
         <p>
           <span
@@ -27,13 +27,16 @@ const StudentCard = ({
               backgroundColor:
                 obj.result.toLowerCase() == 'failed' ? 'red' : '#2CBF6E',
               color: 'white',
+              fontSize: '0.75rem',
               maxWidth: 'fit-content',
               height: '1.55rem',
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
               borderRadius: '1rem',
-              padding: '2px 8px',
+              padding: '0 8px',
+              lineHeight: '1rem',
+              fontWeight: '600',
             }}
           >
             {obj.result}
@@ -41,6 +44,7 @@ const StudentCard = ({
         </p>
         <p>{obj.score}</p>
         <p
+          className='grade'
           style={{
             color:
               obj.grade.toLowerCase() == 'poor'
@@ -66,6 +70,7 @@ const StudentCard = ({
           <button
             onClick={() => {
               setStudent(obj);
+              console.log(obj);
               setOpnDlt(true);
               setOpnEdit(false);
             }}

@@ -3,11 +3,17 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-
+  padding: 0 1.5rem;
+  border-bottom: 1px solid #e4e8ee;
   p {
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    font-weight: 600;
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 1.125rem;
+    color: #242424;
   }
 
   &:hover {
@@ -19,7 +25,12 @@
   * {
     flex: 3;
   }
-
+  .grade {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 0.875re;
+    line-height: 1.125rem;
+  }
   .edit {
     visibility: hidden;
     display: flex;
@@ -39,5 +50,8 @@
   }
   .index {
     flex: 1;
+  }
+  .name {
+    flex: 4;
   }
 }

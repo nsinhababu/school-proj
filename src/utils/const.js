@@ -11,12 +11,12 @@ export const userPageData = [
   {
     name: 'dashboard',
     src: dashboard,
-    path: 'null',
+    path: '/dummy',
   },
   {
     name: 'courses',
     src: courses,
-    path: 'null',
+    path: '/dummy',
   },
   {
     name: 'students',
@@ -26,17 +26,17 @@ export const userPageData = [
   {
     name: 'exams',
     src: exams,
-    path: 'null',
+    path: '/dummy',
   },
   {
     name: 'results',
     src: results,
-    path: 'null',
+    path: '/dummy',
   },
   {
     name: 'notice board',
     src: noticeBoard,
-    path: 'null',
+    path: '/dummy',
   },
   {
     name: 'Live classes',

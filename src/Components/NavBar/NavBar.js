@@ -3,7 +3,7 @@ import addIcon from '../../static/images/addIcon.svg';
 const NavBar = ({ crntContent, handleModal }) => {
   return (
     <nav className='nav'>
-      <p>{crntContent}</p>
+      <p className='pg-nm'>{crntContent}</p>
       <button
         className='add-btn'
         type='button'

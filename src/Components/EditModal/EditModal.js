@@ -10,6 +10,7 @@ const EditModal = ({
   setAllStudents,
   setNewStudent,
 }) => {
+  console.log(student);
   const [crntStudent, setCrntStudent] = useState(student);
   const [nameEr, setNameEr] = useState(false);
   const [classEr, setClassEr] = useState(false);
@@ -64,7 +65,6 @@ const EditModal = ({
 
   useEffect(() => {
     if (crntStudent.score) {
-      // debugger;
       if (crntStudent.score >= 0 && crntStudent.score <= 30) {
         setCrntStudent({ ...crntStudent, result: 'Failed', grade: 'Poor' });
       }
@@ -88,15 +88,24 @@ const EditModal = ({
     if (noError) {
       const unique_id = uuid();
       crntStudent.id = `${unique_id.slice(0, 4)}${unique_id.slice(10, 14)}`;
-      allStudents.push(crntStudent);
-      let editedData = allStudents.filter((data) => data.id != student.id);
+      if (allStudents.length > 1) {
+        let editedData = allStudents.filter((data) => data.id != student.id);
 
-      setAllStudents(editedData);
-      localStorage.setItem('alSt', JSON.stringify(editedData));
-      setOpnEdit(false);
-      setNewStudent(true);
-      console.log(JSON.parse(localStorage.getItem('alSt')));
-      console.log(editedData);
+        setOpnEdit(false);
+        setNewStudent(true);
+        console.log(editedData);
+        console.log(student.id);
+        setAllStudents([...editedData, crntStudent]);
+      }
+      if (allStudents.length == 1) {
+        // setAllStudents([...[], crntStudent]);
+        console.log(crntStudent);
+        allStudents.pop();
+        setAllStudents([crntStudent]);
+        // allStudents[0] = crntStudent;
+        setOpnEdit(false);
+      }
+      console.log(allStudents);
     }
   };
   return (
@@ -189,7 +198,12 @@ const EditModal = ({
           >
             CANCEL
           </button>
-          <button className='cnfrm-btn' type='submit'>
+          <button
+            style={{ backgroundColor: noError ? '#2ca4d8' : '#A8B4B9' }}
+            disabled={!noError}
+            className='cnfrm-btn'
+            type='submit'
+          >
             CONFIRM
           </button>
         </div>

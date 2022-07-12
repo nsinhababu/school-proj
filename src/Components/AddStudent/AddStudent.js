@@ -3,18 +3,26 @@ import { useState, useEffect, useRef } from 'react';
 import InputComp from '../cells/InputComp/InputComp';
 import { v4 as uuid } from 'uuid';
 
-const AddStudent = ({ pageName, handleCancel, setNewStudent }) => {
+const AddStudent = ({
+  pageName,
+  handleCancel,
+  setNewStudent,
+  allStudents,
+  setAllStudents,
+}) => {
   const [nameEr, setNameEr] = useState(false);
   const [classEr, setClassEr] = useState(false);
   const [scoreEr, setScoreEr] = useState(false);
   const [result, setResult] = useState('');
   const [grade, setGrade] = useState('');
+  const [disableBtn, setDisableBtn] = useState(true);
+
   const [studentData, setStudentData] = useState({
     name: '',
     class: '',
     score: '',
   });
-  const [allStudents, setAllStudents] = useState('');
+  // const [allStudents, setAllStudents] = useState('');
 
   const noError = !nameEr && !classEr && !scoreEr;
 
@@ -62,30 +70,25 @@ const AddStudent = ({ pageName, handleCancel, setNewStudent }) => {
     }
   };
 
-  useEffect(() => {
-    if (allStudents) {
-      console.log(studentData);
-      allStudents.push(studentData);
+  const handleSubmit = () => {
+    if (noError) {
+      console.log(studentData.id);
+      setAllStudents([...allStudents, studentData]);
+      // }
       console.log(allStudents);
       // localStorage.removeItem('alSt')
       localStorage.setItem('alSt', JSON.stringify(allStudents));
-      debugger;
-      formRef.current.reset();
 
       setResult('');
       setGrade('');
+      setStudentData({
+        name: '',
+        class: '',
+        score: '',
+      });
     }
-  }, [allStudents]);
+    formRef.current.reset();
 
-  const handleSubmit = () => {
-    if (noError) {
-      const unique_id = uuid();
-      studentData.id = `${unique_id.slice(0, 4)}${unique_id.slice(10, 14)}`;
-      if (localStorage.getItem('alSt')) {
-        setAllStudents(JSON.parse(localStorage.getItem('alSt')));
-      }
-      if (!localStorage.getItem('alSt')) setAllStudents([]);
-    }
     console.log(allStudents);
   };
 
@@ -104,6 +107,11 @@ const AddStudent = ({ pageName, handleCancel, setNewStudent }) => {
         setResult('Passed');
         setGrade('Excellent');
       }
+      const unique_id = uuid();
+      setStudentData({
+        ...studentData,
+        id: `${unique_id.slice(0, 4)}${unique_id.slice(10, 14)}`,
+      });
     } else {
       setResult('');
       setGrade('');
@@ -124,6 +132,14 @@ const AddStudent = ({ pageName, handleCancel, setNewStudent }) => {
       setGrade(studentData.grade);
     }
   }, [scoreEr]);
+  useEffect(() => {
+    if (noError) {
+      setDisableBtn(false);
+    }
+    if (!noError) {
+      setDisableBtn(true);
+    }
+  }, [noError]);
 
   return (
     <div className='a-s-cntnr'>
@@ -221,7 +237,14 @@ const AddStudent = ({ pageName, handleCancel, setNewStudent }) => {
           >
             CANCEL
           </button>
-          <button className='cnfrm-btn' type='submit'>
+          <button
+            style={{
+              backgroundColor: disableBtn ? ' #A8B4B9' : '#2ca4d8',
+            }}
+            disabled={disableBtn}
+            className='cnfrm-btn'
+            type='submit'
+          >
             CONFIRM
           </button>
         </div>

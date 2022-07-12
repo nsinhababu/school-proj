@@ -9,6 +9,7 @@ const Main = () => {
   const [openModal, setOpenModal] = useState(false);
   const [title, setTitle] = useState('');
   const [newStudent, setNewStudent] = useState(false);
+  const [allStudents, setAllStudents] = useState([]);
   const handleModal = () => {
     setOpenModal(true);
   };
@@ -29,13 +30,17 @@ const Main = () => {
         <SideBar onClick={handleTitle} />
       </div>
       <div className='main-cntnr'>
-        <Outlet context={{ newStudent, setNewStudent }} />
+        <Outlet
+          context={{ newStudent, setNewStudent, allStudents, setAllStudents }}
+        />
       </div>
       <Modal isOpen={openModal}>
         <AddStudent
           pageName='Add student'
           handleCancel={closeModal}
           setNewStudent={setNewStudent}
+          allStudents={allStudents}
+          setAllStudents={setAllStudents}
         />
       </Modal>
     </div>

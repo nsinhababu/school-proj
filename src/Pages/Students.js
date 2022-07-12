@@ -3,26 +3,43 @@ import StudentCard from '../Components/cells/StudentCard/StudentCard';
 import { useOutletContext } from 'react-router-dom';
 
 const Students = () => {
-  const [allStudents, setAllStudents] = useState('');
-  const { newStudent, setNewStudent } = useOutletContext();
-  useEffect(() => {
-    if (localStorage.getItem('alSt')) {
-      setAllStudents(JSON.parse(localStorage.getItem('alSt')));
-    }
-  }, []);
-  useEffect(() => {
-    if (newStudent) {
-      setAllStudents(JSON.parse(localStorage.getItem('alSt')));
-      setNewStudent(false);
-    }
-  }, [newStudent]);
+  const { newStudent, setNewStudent, allStudents, setAllStudents } =
+    useOutletContext();
 
   return (
     <>
       <div className='students-cntnr'>
         <div className='s-data-main-cntnr'>
-          {allStudents &&
-            allStudents.map((student, index) => {
+          <div
+            style={{
+              backgroundColor: ' #F1F4F8',
+              borderRadius: '0.625rem 0.625rem 0 0',
+            }}
+            className='hdng s-data-cntnr'
+          >
+            <p className='index'>No.</p>
+            <p className='name'>Student Name</p>
+            <p>Class</p>
+            <p>Result</p>
+            <p>Score</p>
+            <p>Grade</p>
+            <p className='edit'></p>
+          </div>
+
+          {allStudents.length ? (
+            allStudents &&
+            [
+              ...new Set(
+                allStudents.map((st) => ({
+                  name: st.name,
+                  class: st.class,
+                  score: st.score,
+                  result: st.result,
+                  grade: st.grade,
+                  id: st.id,
+                }))
+              ),
+            ].map((student, index) => {
               return (
                 <div key={student.id}>
                   <StudentCard
@@ -34,7 +51,10 @@ const Students = () => {
                   />
                 </div>
               );
-            })}
+            })
+          ) : (
+            <h2 style={{ margin: '50px auto' }}>Add Student</h2>
+          )}
         </div>
       </div>
     </>
