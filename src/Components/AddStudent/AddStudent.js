@@ -1,6 +1,8 @@
 import { logDOM } from '@testing-library/react';
 import { useState, useEffect, useRef } from 'react';
 import InputComp from '../cells/InputComp/InputComp';
+import { v4 as uuid } from 'uuid';
+
 const AddStudent = ({ pageName, handleCancel, setNewStudent }) => {
   const [nameEr, setNameEr] = useState(false);
   const [classEr, setClassEr] = useState(false);
@@ -77,9 +79,8 @@ const AddStudent = ({ pageName, handleCancel, setNewStudent }) => {
 
   const handleSubmit = () => {
     if (noError) {
-      studentData.id = `${studentData.name.slice(0, 3)}${Math.floor(
-        Math.random() * allStudents.length
-      )}`;
+      const unique_id = uuid();
+      studentData.id = `${unique_id.slice(0, 4)}${unique_id.slice(10, 14)}`;
       if (localStorage.getItem('alSt')) {
         setAllStudents(JSON.parse(localStorage.getItem('alSt')));
       }

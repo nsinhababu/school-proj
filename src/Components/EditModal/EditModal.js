@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react';
 import InputComp from '../cells/InputComp/InputComp';
+
+//import uuid v4
+import { v4 as uuid } from 'uuid';
 const EditModal = ({
   setOpnEdit,
   student,
@@ -83,16 +86,16 @@ const EditModal = ({
 
   const handleSubmit = () => {
     if (noError) {
-      crntStudent.id = `${crntStudent.name.slice(0, 3)}${Math.floor(
-        Math.random() * allStudents.length
-      )}`;
+      const unique_id = uuid();
+      crntStudent.id = `${unique_id.slice(0, 4)}${unique_id.slice(10, 14)}`;
       allStudents.push(crntStudent);
       let editedData = allStudents.filter((data) => data.id != student.id);
 
       setAllStudents(editedData);
+      localStorage.setItem('alSt', JSON.stringify(editedData));
       setOpnEdit(false);
       setNewStudent(true);
-      console.log(allStudents);
+      console.log(JSON.parse(localStorage.getItem('alSt')));
       console.log(editedData);
     }
   };
