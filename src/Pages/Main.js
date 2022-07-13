@@ -1,7 +1,7 @@
 import NavBar from '../Components/NavBar/NavBar';
 import SideBar from '../Components/SideBar/SideBar';
 import { Outlet } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Students from './Students';
 import Modal from '../Modal/Modal';
 import AddStudent from '../Components/AddStudent/AddStudent';
@@ -10,6 +10,13 @@ const Main = () => {
   const [title, setTitle] = useState('');
   const [newStudent, setNewStudent] = useState(false);
   const [allStudents, setAllStudents] = useState([]);
+
+  useEffect(() => {
+    if (allStudents.length == 0 && localStorage.getItem('alSt')) {
+      setAllStudents(JSON.parse(localStorage.getItem('alSt')));
+      // console.log(JSON.parse(localStorage.getItem('alSt')));
+    }
+  }, []);
   const handleModal = () => {
     setOpenModal(true);
   };

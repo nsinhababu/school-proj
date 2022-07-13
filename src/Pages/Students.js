@@ -6,6 +6,35 @@ const Students = () => {
   const { newStudent, setNewStudent, allStudents, setAllStudents } =
     useOutletContext();
 
+  const mutateArr = () => {
+    const newArr = [
+      ...new Set(
+        allStudents.map((st) => ({
+          name: st.name,
+          class: st.class,
+          score: st.score,
+          result: st.result,
+          grade: st.grade,
+          id: st.id,
+        }))
+      ),
+    ];
+    localStorage.setItem('alSt', JSON.stringify(newArr));
+    return newArr.map((student, index) => {
+      return (
+        <div key={student.id}>
+          <StudentCard
+            obj={student}
+            index={index + 1}
+            setNewStudent={setNewStudent}
+            allStudents={allStudents}
+            setAllStudents={setAllStudents}
+          />
+        </div>
+      );
+    });
+  };
+
   return (
     <>
       <div className='students-cntnr'>
@@ -27,31 +56,7 @@ const Students = () => {
           </div>
 
           {allStudents.length ? (
-            allStudents &&
-            [
-              ...new Set(
-                allStudents.map((st) => ({
-                  name: st.name,
-                  class: st.class,
-                  score: st.score,
-                  result: st.result,
-                  grade: st.grade,
-                  id: st.id,
-                }))
-              ),
-            ].map((student, index) => {
-              return (
-                <div key={student.id}>
-                  <StudentCard
-                    obj={student}
-                    index={index + 1}
-                    setNewStudent={setNewStudent}
-                    allStudents={allStudents}
-                    setAllStudents={setAllStudents}
-                  />
-                </div>
-              );
-            })
+            allStudents && mutateArr()
           ) : (
             <h2 style={{ margin: '50px auto' }}>Add Student</h2>
           )}
