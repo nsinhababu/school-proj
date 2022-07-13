@@ -6,6 +6,12 @@ const Students = () => {
   const { newStudent, setNewStudent, allStudents, setAllStudents } =
     useOutletContext();
 
+  useEffect(() => {
+    if (allStudents.length == 0 && localStorage.getItem('alSt')) {
+      setAllStudents(JSON.parse(localStorage.getItem('alSt')));
+    }
+  }, []);
+
   const mutateArr = () => {
     const newArr = [
       ...new Set(

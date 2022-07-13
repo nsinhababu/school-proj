@@ -11,12 +11,6 @@ const Main = () => {
   const [newStudent, setNewStudent] = useState(false);
   const [allStudents, setAllStudents] = useState([]);
 
-  useEffect(() => {
-    if (allStudents.length == 0 && localStorage.getItem('alSt')) {
-      setAllStudents(JSON.parse(localStorage.getItem('alSt')));
-      // console.log(JSON.parse(localStorage.getItem('alSt')));
-    }
-  }, []);
   const handleModal = () => {
     setOpenModal(true);
   };
