@@ -42,7 +42,7 @@ const StudentCard = ({
             {obj.result}
           </span>
         </p>
-        <p>{obj.score}</p>
+        <p>{`${obj.score}/100`}</p>
         <p
           className='grade'
           style={{

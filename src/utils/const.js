@@ -21,7 +21,7 @@ export const userPageData = [
   {
     name: 'students',
     src: students,
-    path: 'students',
+    path: '/students',
   },
   {
     name: 'exams',
