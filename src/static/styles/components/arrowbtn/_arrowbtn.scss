@@ -1,0 +1,20 @@
+.arrow-btn {
+  width: 28px;
+  height: 60px;
+  position: relative;
+  padding-left: 0.25rem;
+  opacity: 0.5;
+  justify-content: center;
+  align-items: center;
+  border-left: 0.5px solid lightgray;
+  display: none;
+  .opened {
+    transform: rotate(180deg);
+  }
+}
+
+@media screen and(max-width:800px) {
+  .arrow-btn {
+    display: flex;
+  }
+}

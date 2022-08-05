@@ -49,3 +49,11 @@ export const userPageData = [
     path: 'null',
   },
 ];
+
+
+export const classSchedule = {
+  'class 5':{
+    
+
+  },
+}

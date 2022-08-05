@@ -7,11 +7,7 @@ const DeleteModal = ({
 }) => {
   const deleteStudent = (id) => {
     if (allStudents.length > 0) {
-      const filteredAr = allStudents.filter((student) => student.id != id);
-      // localStorage.removeItem('alSt');
-      // localStorage.setItem('alSt', JSON.stringify(filteredAr));
-      // setAllStudents(new Set(JSON.parse(localStorage.getItem('alSt'))));
-      // setAllStudents(JSON.parse(localStorage.getItem('alSt')));
+      const filteredAr = allStudents.filter((student) => student.id !== id);
       setAllStudents(filteredAr);
       setNewStudent(true);
     }

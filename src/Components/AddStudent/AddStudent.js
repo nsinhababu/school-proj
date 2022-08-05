@@ -76,7 +76,6 @@ const AddStudent = ({
       setAllStudents([...allStudents, studentData]);
       // }
       console.log(allStudents);
-      // localStorage.removeItem('alSt')
       localStorage.setItem('alSt', JSON.stringify(allStudents));
 
       setResult('');
@@ -94,7 +93,6 @@ const AddStudent = ({
 
   useEffect(() => {
     if (studentData.score) {
-      // debugger;
       if (studentData.score >= 0 && studentData.score <= 30) {
         setResult('Failed');
         setGrade('Poor');
@@ -112,9 +110,6 @@ const AddStudent = ({
         ...studentData,
         id: `${unique_id.slice(0, 4)}${unique_id.slice(10, 14)}`,
       });
-    } else {
-      setResult('');
-      setGrade('');
     }
   }, [studentData.score]);
 
@@ -187,7 +182,7 @@ const AddStudent = ({
           hasEr={scoreEr}
           value={studentData.score}
         />
-        <div className='result'>
+        <div className='a-s-result'>
           <p>RESULT</p>
           <span
             style={{
@@ -203,7 +198,7 @@ const AddStudent = ({
             {result ? result : '-'}
           </span>
         </div>
-        <div className='grade'>
+        <div className='a-s-grade'>
           <p>GRADE</p>
           {studentData?.grade ? (
             <span

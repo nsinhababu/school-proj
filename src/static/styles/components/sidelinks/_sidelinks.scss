@@ -1,6 +1,6 @@
 .side-link {
   width: 100%;
-  height: 2.5rem;
+  height: fit-content;
   border-radius: 0.625rem;
   display: flex;
   justify-content: flex-start;
@@ -11,9 +11,29 @@
   color: #242424;
   text-decoration: none;
   text-transform: capitalize;
-  padding-left: 1.5rem;
+  padding: 0.625rem 1.5rem;
 }
 .active {
   background-color: rgba(44, 164, 216, 0.1);
   color: #2ca4d8;
+}
+
+@media screen and(max-width:1000px) {
+  .side-link {
+    padding: 0.5rem 1rem;
+    font-size: 0.625rem;
+  }
+}
+@media screen and(max-width:800px) {
+  .side-link {
+    flex-direction: column;
+    font-size: 0.625rem;
+    padding: 0.25rem;
+    gap: 0.5rem;
+    width: fit-content;
+
+    .s-l-txt {
+      display: none;
+    }
+  }
 }

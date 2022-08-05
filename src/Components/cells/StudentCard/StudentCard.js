@@ -20,29 +20,18 @@ const StudentCard = ({
       <div className='s-data-cntnr'>
         <p className='index'>{index}</p>
         <p className='name'>{obj.name}</p>
-        <p>{obj.class}</p>
-        <p>
+        <p className='class'>{obj.class}</p>
+        <p className='result'>
           <span
             style={{
               backgroundColor:
                 obj.result.toLowerCase() == 'failed' ? 'red' : '#2CBF6E',
-              color: 'white',
-              fontSize: '0.75rem',
-              maxWidth: 'fit-content',
-              height: '1.55rem',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              borderRadius: '1rem',
-              padding: '0 8px',
-              lineHeight: '1rem',
-              fontWeight: '600',
             }}
           >
             {obj.result}
           </span>
         </p>
-        <p>{`${obj.score}/100`}</p>
+        <p className='score'>{`${obj.score}/100`}</p>
         <p
           className='grade'
           style={{

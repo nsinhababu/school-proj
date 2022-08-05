@@ -153,7 +153,7 @@ const EditModal = ({
           hasEr={scoreEr}
           value={crntStudent.score}
         />
-        <div className='result'>
+        <div className='a-s-result'>
           <p>RESULT</p>
           <span
             style={{
@@ -168,7 +168,7 @@ const EditModal = ({
             {crntStudent.result}
           </span>
         </div>
-        <div className='grade'>
+        <div className='a-s-grade'>
           <p>GRADE</p>
           <span
             style={{

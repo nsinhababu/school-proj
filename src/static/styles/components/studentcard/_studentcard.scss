@@ -9,7 +9,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    font-weight: 600;
+    // font-weight: 600;
     font-weight: 400;
     font-size: 0.875rem;
     line-height: 1.125rem;
@@ -53,5 +53,77 @@
   }
   .name {
     flex: 4;
+    text-transform: capitalize;
+  }
+  .result {
+    span {
+      color: white;
+      font-size: 0.75rem;
+      max-width: fit-content;
+      height: 1.55rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 1rem;
+      padding: 0 8px;
+      line-height: 1rem;
+      font-weight: 600;
+    }
+  }
+}
+
+@media screen and(max-width:1000px) {
+  .s-data-cntnr {
+    p {
+      font-size: 0.75rem;
+    }
+  }
+}
+
+@media screen and(max-width:800px) {
+  .s-data-cntnr {
+    flex-direction: column;
+    height: fit-content;
+
+    gap: 0.5rem;
+    // border: 1px solid #e4e8ee;
+    .edit {
+      visibility: visible;
+      width: fit-content;
+      margin-left: auto;
+    }
+    .result {
+      span {
+        font-size: 0.625rem;
+      }
+    }
+
+    .name::before {
+      content: 'Name: ';
+      font-size: inherit;
+      margin-right: 0.5rem;
+    }
+    .class::before {
+      content: 'Class: ';
+      font-size: inherit;
+      margin-right: 0.5rem;
+    }
+    .result::before {
+      content: 'Result: ';
+      font-size: inherit;
+      margin-right: 0.5rem;
+    }
+    .score::before {
+      content: 'Score: ';
+      font-size: inherit;
+      margin-right: 0.5rem;
+    }
+    .grade::before {
+      content: 'Grade:  ';
+      font-size: inherit;
+      margin-right: 0.5rem;
+      color: #242424;
+      font-weight: 400;
+    }
   }
 }

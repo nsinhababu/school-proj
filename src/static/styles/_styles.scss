@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Koh+Santepheap&family=Montserrat&family=Poppins&display=swap');
 @import '../styles/pages/main/main';
 @import '../styles/components/navbar/navbar';
 @import './utilities/colors';
@@ -9,12 +10,15 @@
 @import '../styles/components/studentcard/studentcard';
 @import '../styles/components/addstudent/addstudent';
 @import '../styles/components/deletemodal/deletemodal';
+@import '../styles/components/arrowbtn/arrowbtn';
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   border: none;
   outline: none;
+  font-family: 'Montserrat', sans-serif;
+  overflow-wrap: break-word;
 }
 
 button {
